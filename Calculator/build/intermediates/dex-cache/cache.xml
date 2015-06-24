@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="D:\Mauri\android_basic\Calculator\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.1.0\classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="983e2f375504bc04def18e709c35192afe92e65f">
+        <dex dex="D:\Mauri\android_basic\Calculator\app\build\intermediates\pre-dexed\debug\classes-55822ea39546af04fa8acfcde18ebe7f18e33189.jar" />
+    </item>
+    <item
+        jar="D:\Mauri\android_basic\Calculator\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.0\libs\internal_impl-22.1.0.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="025cb89f2896c63200ff4c2e6c467a95691d880a">
+        <dex dex="D:\Mauri\android_basic\Calculator\app\build\intermediates\pre-dexed\debug\internal_impl-22.1.0-718973820fe0b6ca4f2b9c86351b06e911873d3b.jar" />
+    </item>
+    <item
+        jar="D:\Mauri\android_basic\Calculator\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.0\classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="eeebabdfd8203f6ab639ccea4ffa1f20e1adee3a">
+        <dex dex="D:\Mauri\android_basic\Calculator\app\build\intermediates\pre-dexed\debug\classes-68ecfa7dc22b18367c817939b5d4ef9f4d7920f0.jar" />
+    </item>
+    <item
+        jar="C:\Users\Mauricio Arce\AppData\Local\Android\sdk1\extras\android\m2repository\com\android\support\support-annotations\22.1.0\support-annotations-22.1.0.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="281bc6c58ecb3644c23fbc5ee0452019f67b4d5d">
+        <dex dex="D:\Mauri\android_basic\Calculator\app\build\intermediates\pre-dexed\debug\support-annotations-22.1.0-3622811279ca82aaefa6fed2063080515954e676.jar" />
+    </item>
+
+</items>

@@ -9,8 +9,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
@@ -23,12 +21,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private ImageButton btnDivide;
     private ImageButton btnMultiply;
     private ImageButton btnEquals;
-    private double op1 = -1;
-    private boolean op1_set = false;
-    private double op2 = -1;
-    private int result;
-    private String operation;
-
+    private String operator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,69 +55,41 @@ public class MainActivity extends Activity implements View.OnClickListener {
         btnPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                operation = "+";
-                op1 = Double.parseDouble(txtResult.getText().toString());
-                txtResult.setText(txtResult.getText().toString() + "+");
-                op1_set = true;
+                operator = "+";
+                txtResult.append(operator);
             }
         });
 
         btnMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                operation = "-";
-                op1 = Double.parseDouble(txtResult.getText().toString());
-                txtResult.setText(txtResult.getText().toString() + "-");
-                op1_set = true;
+                operator = "-";
+                txtResult.append(operator);
             }
         });
 
         btnDivide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                operation = "/";
-                op1 = Double.parseDouble(txtResult.getText().toString());
-                txtResult.setText(txtResult.getText().toString() + "/");
-                op1_set = true;
+                operator = "/";
+                txtResult.append(operator);
             }
         });
 
         btnMultiply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                operation = "x";
-                op1 = Double.parseDouble(txtResult.getText().toString());
-                txtResult.setText(txtResult.getText().toString() + "x");
-                op1_set = true;
+                operator = "x";
+                txtResult.append(operator);
             }
         });
 
         btnEquals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                switch (operation) {
-                    case "+":
-                        op2 = op1 + Double.parseDouble(txtResult.getText().toString());
-                        txtResult.setText(op2 + "");
-                        //txtResult.setText("");
-                        break;
-                    case "-":
-                        op2 = op1 - Double.parseDouble(txtResult.getText().toString());
-                        txtResult.setText(op2 + "");
-                        //txtOperation.setText("");
-                        break;
-                    case "/":
-                        op2 = op1 / Double.parseDouble(txtResult.getText().toString());
-                        txtResult.setText(op2 + "");
-                        //txtOperation.setText("");
-                        break;
-                    case "x":
-                        op2 = op1 * Double.parseDouble(txtResult.getText().toString());
-                        txtResult.setText(op2 + "");
-                        //txtOperation.setText("");
-                        break;
-                }
+                ExpressionParser parser = new ExpressionParser();
+                float result = parser.parseExpression(txtResult.getText().toString()).evaluate();
+                txtResult.setText(result + "");
             }
         });
     }
@@ -134,12 +99,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         Button pressed = (Button) view;
         for (Button btn : btnNumbers) {
             if (pressed == btn) {
-
-                if (op1_set) {
-                    txtResult.setText("");
-                    op1_set = false;
-                }
-
                 String v = btn.getText().toString();
                 txtResult.append(v);
             }

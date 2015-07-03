@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">AddressBook</string>
+    <string name="sutitem_text">Test</string>
+    <string name="item_text">test</string>
+    <string name="add_contact">Add contact</string>
+    <string name="name">name</string>
+    <string name="phone">phone</string>
+    <string name="contac_name">Name</string>
+    <string name="contact_phone">Phone</string>
+    <string name="contact_email">Email</string>
+    <string name="contact_name">Name</string>
+    <string name="address_app">AddressBook</string>
+</resources>

@@ -22,6 +22,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private ImageButton btnMultiply;
     private ImageButton btnEquals;
     private String operator;
+    private boolean resultField = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +91,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 ExpressionParser parser = new ExpressionParser();
                 float result = parser.parseExpression(txtResult.getText().toString()).evaluate();
                 txtResult.setText(result + "");
+                resultField = true;
             }
         });
     }
@@ -97,11 +99,19 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         Button pressed = (Button) view;
+        checkResultField();
         for (Button btn : btnNumbers) {
             if (pressed == btn) {
                 String v = btn.getText().toString();
                 txtResult.append(v);
             }
+        }
+    }
+
+    private void checkResultField() {
+        if (resultField == true) {
+            resultField = false;
+            txtResult.setText("");
         }
     }
 

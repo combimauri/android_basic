@@ -24,12 +24,12 @@ public class MainActivity extends ActionBarActivity {
 
     private AddressReaderDbHelper helper;
     private List<ItemsGroup> contacts = new ArrayList<>();
-    private AddressContract contract = new AddressContract();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
+        recoverData();
         updateUI();
     }
 
@@ -60,6 +60,12 @@ public class MainActivity extends ActionBarActivity {
                         String phone = contactPhone.getText().toString();
                         String email = contactEmail.getText().toString();
 
+                        saveDatabase(name, phone, email);
+                        MainActivity.this.fillExpandableList(name, phone, email);
+                        updateUI();
+                    }
+
+                    private void saveDatabase(String name, String phone, String email) {
                         helper = new AddressReaderDbHelper(MainActivity.this);
                         SQLiteDatabase db = helper.getWritableDatabase();
                         ContentValues values = new ContentValues();
@@ -70,7 +76,6 @@ public class MainActivity extends ActionBarActivity {
                         values.put(AddressContract.Columns.CONTACT_EMAIL, email);
 
                         db.insertWithOnConflict(AddressContract.TABLE_NAME, null, values, SQLiteDatabase.CONFLICT_IGNORE);
-                        updateUI();
                     }
                 });
                 builder.setNegativeButton("Cancel",null);
@@ -81,28 +86,34 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
-    private void updateUI() {
+    private void recoverData() {
         helper = new AddressReaderDbHelper(MainActivity.this);
         SQLiteDatabase db = helper.getReadableDatabase();
         String[] columns = new String[]{AddressContract.Columns._ID,
-                                        AddressContract.Columns.CONTACT_NAME,
-                                        AddressContract.Columns.CONTACT_NUMBER,
-                                        AddressContract.Columns.CONTACT_EMAIL};
+                AddressContract.Columns.CONTACT_NAME,
+                AddressContract.Columns.CONTACT_NUMBER,
+                AddressContract.Columns.CONTACT_EMAIL};
         Cursor cursor = db.query(AddressContract.TABLE_NAME,
-                                 columns,
-                                 null, null, null, null, null);
+                columns,
+                null, null, null, null, null);
         if (cursor.moveToFirst()) {
             do {
                 String name = cursor.getString(1);
                 String phone = cursor.getString(2);
                 String email = cursor.getString(3);
-                ItemsGroup group = new ItemsGroup(name);
-                group.getChildren().add(phone);
-                group.getChildren().add(email);
-                contacts.add(group);
+                fillExpandableList(name, phone, email);
             } while (cursor.moveToNext());
         }
+    }
 
+    private void fillExpandableList(String name, String phone, String email) {
+        ItemsGroup group = new ItemsGroup(name);
+        group.getChildren().add(phone);
+        group.getChildren().add(email);
+        contacts.add(group);
+    }
+
+    private void updateUI() {
         ExpandableListView listView = (ExpandableListView) findViewById(R.id.exp_address);
         ContactsAdapter adapter = new ContactsAdapter(this, contacts);
         listView.setAdapter(adapter);

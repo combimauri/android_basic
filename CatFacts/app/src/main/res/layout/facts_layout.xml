@@ -8,25 +8,54 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:background="#ff8194ff">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cat Facts"
+            android:id="@+id/text_title_facts"
+            android:layout_gravity="center_horizontal"
+            android:textSize="30dp"/>
 
         <ListView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/list_facts" />
+            android:id="@+id/list_facts"
+            android:background="#ff9fd8ff" />
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="2">
+        android:layout_weight="2"
+        android:weightSum="3"
+        android:background="#ffe58aff">
 
         <ImageView
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:src="@drawable/pusheen_noodles"
+            android:layout_weight="1"
+            android:layout_gravity="left" />
+
+        <ImageView
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/imageView2"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/pusheen_gangnam"/>
+            android:src="@drawable/pusheen_gangnam"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal" />
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView3"
+            android:src="@drawable/pusheen_donut"
+            android:layout_weight="1"
+            android:layout_gravity="right" />
     </LinearLayout>
 </LinearLayout>

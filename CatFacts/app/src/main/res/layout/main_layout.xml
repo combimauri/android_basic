@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="2">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cat Facts"
+            android:id="@+id/text_title"
+            android:layout_gravity="center_horizontal"
+            android:textSize="30dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/heart_view"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/pusheen_heart"
+            android:onClick="displayCat"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Look for"
+            android:id="@+id/text_lookfor_title"
+            android:layout_gravity="center_horizontal"
+            android:textSize="25dp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_number_facts"
+            android:layout_gravity="center_horizontal"
+            android:inputType="number"
+            android:hint="Introduce a number of facts" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="facts"
+            android:id="@+id/text_facts"
+            android:layout_gravity="center_horizontal"
+            android:textSize="25dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search"
+            android:id="@+id/button_search"
+            android:layout_gravity="center_horizontal"
+            android:onClick="search" />
+    </LinearLayout>
+
+</LinearLayout>

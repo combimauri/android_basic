@@ -39,8 +39,8 @@
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="3"
-            android:background="@color/background_numbers"
-            android:weightSum="5">
+            android:background="#ffff2e29"
+            android:weightSum="4">
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -198,18 +198,6 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
-
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/imageButton" />
-            </LinearLayout>
-
 
         </LinearLayout>
 
@@ -220,7 +208,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:weightSum="4"
-            android:background="@color/background_operations">
+            android:background="#ffff7a2d">
 
             <ImageButton
                 android:layout_width="35dp"

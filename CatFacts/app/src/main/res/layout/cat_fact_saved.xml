@@ -3,6 +3,7 @@
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:textSize="20sp"
     android:textColor="#ff373737"
-    android:id="@+id/text_item">
+    android:id="@+id/text_fact_saved"
+    android:text="You don&apos;t have facts saved">
 
 </TextView>

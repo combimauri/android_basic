@@ -29,6 +29,11 @@ public class MainActivity extends Activity {
         toast.show();
     }
 
+    public void showSavedFacts(View view) {
+        Intent intent = new Intent(this, SavedFacts.class);
+        startActivity(intent);
+    }
+
     public void search(View view) {
         Intent intent = new Intent(this, FactsActivity.class);
         intent.putExtra("number", factsNumber.getText().toString());

@@ -22,7 +22,7 @@
         <ListView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/list_facts"
+            android:id="@+id/list_saved_facts"
             android:background="#ff9fd8ff" />
     </LinearLayout>
 
@@ -38,24 +38,25 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/imageView"
-            android:src="@drawable/pusheen_noodles"
+            android:src="@drawable/pusheen_jake"
             android:layout_weight="1"
             android:layout_gravity="left" />
 
         <ImageView
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:id="@+id/button_saved"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView2"
+            android:src="@drawable/pusheen_heart"
             android:layout_weight="1"
             android:layout_gravity="center_horizontal"
-            android:background="#ff767eff"
-            android:src="@drawable/pusheen_gangnam"/>
+            android:onClick="showSavedFacts"
+            android:background="#ff767eff" />
 
         <ImageView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/imageView3"
-            android:src="@drawable/pusheen_donut"
+            android:src="@drawable/pusheen_nutella"
             android:layout_weight="1"
             android:layout_gravity="right" />
     </LinearLayout>

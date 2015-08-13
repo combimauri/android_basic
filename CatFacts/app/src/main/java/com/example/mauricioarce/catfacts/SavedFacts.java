@@ -39,14 +39,10 @@ public class SavedFacts extends Activity {
                 builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        String sql = String.format("DELETE FROM %s WHERE %s = '%s'",
-                                FactsContract.TABLE_NAME,
-                                FactsContract.Columns.FACT_CAT,
-                                fact);
-
                         helper = new FactsReaderDbHelper(SavedFacts.this);
                         SQLiteDatabase sqlDB = helper.getWritableDatabase();
-                        sqlDB.execSQL(sql);
+                        String args[] = {fact};
+                        sqlDB.delete(FactsContract.TABLE_NAME, FactsContract.Columns.FACT_CAT + " = ?", args);
                         updateUI();
                     }
                 });

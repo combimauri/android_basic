@@ -2,11 +2,8 @@ package com.example.mauricioarce.catfacts;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.ListActivity;
 import android.content.ContentValues;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.database.MatrixCursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.http.AndroidHttpClient;
 import android.os.AsyncTask;
@@ -14,9 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
 import org.apache.http.client.ClientProtocolException;
@@ -103,12 +98,18 @@ public class FactsActivity extends Activity {
             if (client != null) {
                 client.close();
             }
-            facts = new String[result.getCatFacts().size()];
-            for (int i = 0; i < result.getCatFacts().size(); i++) {
-                facts[i] = result.getCatFacts().get(i);
+            try {
+                facts = new String[result.getCatFacts().size()];
+                for (int i = 0; i < result.getCatFacts().size(); i++) {
+                    facts[i] = result.getCatFacts().get(i);
+                }
+                factsList.setAdapter(new ArrayAdapter<>(getApplicationContext(), R.layout.cat_fact, facts));
+            } catch (NullPointerException exception) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(FactsActivity.this);
+                builder.setMessage("You don't have internet connection");
+                builder.setPositiveButton("Accept", null);
+                builder.create().show();
             }
-
-            factsList.setAdapter(new ArrayAdapter<>(getApplicationContext(), R.layout.cat_fact, facts));
         }
     }
 }

@@ -49,7 +49,6 @@
             android:src="@drawable/pusheen_heart"
             android:layout_weight="1"
             android:layout_gravity="center_horizontal"
-            android:onClick="showSavedFacts"
             android:background="#ff767eff" />
 
         <ImageView
